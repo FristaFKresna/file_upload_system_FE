@@ -5,6 +5,8 @@ import ListProduct from './pages/ListProducts';
 import ProductDetail from './pages/ProductDetail';
 import Navbar from './pages/Navbar';
 import Register from './pages/Register';
+import Login from './pages/Login';
+import ProductDetail02 from './pages/productDetail_02';
 
 
 
@@ -28,13 +30,21 @@ class App extends React.Component{
             <ProductDetail/>
           </Route>
 
+          <Route path = '/detail-02'>
+            <ProductDetail02/>
+          </Route>
+
           <Route path = '/register'>
             <Register/>
           </Route>
 
+          <Route path = '/login'>
+            <Login/>
+          </Route>
+
         
         </div>
-        
+
       </div>
     )
   }

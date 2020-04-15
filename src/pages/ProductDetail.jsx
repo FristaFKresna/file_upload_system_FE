@@ -9,7 +9,7 @@ class ProductDetail extends React.Component{
         
     }
 
-    
+
     componentDidMount=()=>{
         this.getDataProduct()
                                 

@@ -11,6 +11,20 @@ class ListProduct extends React.Component{
         this.getDataProduct()
     }
 
+    onDeleteProductBtn = (id) =>{
+       if(window.confirm('Are You Sure Want To Delete This Product?')){
+           Axios.delete('http://localhost:4000/products/' + id)
+           .then((res)=>{
+               console.log(res)
+               alert(res.data.message)
+               this.getDataProduct()
+           })
+           .catch((err)=>{
+               console.log(err)
+           })
+       }
+    }
+
     renderListProduct=()=>{
     
         var output = this.state.dataProduct.map((val,index)=>{
@@ -28,7 +42,7 @@ class ListProduct extends React.Component{
                                 <Link to={'/detail/' + val.product_id}>
                                     <div className="btn btn-outline-primary mr-2">See Detail</div>
                                 </Link>
-                                <div className="btn btn-outline-danger">Delete</div>
+                                <div className="btn btn-outline-danger" onClick={()=>this.onDeleteProductBtn(val.product_id)}>Delete</div>
                             </div>
                         </div>
                     </div>
